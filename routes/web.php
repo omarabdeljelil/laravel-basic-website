@@ -11,8 +11,9 @@
 |
 */
 
-Route::get('/', 'PagesController@home');
-Route::get('/about', 'PagesController@about');
-Route::get('/contact', 'PagesController@contact');
+Route::get('/', 'PagesController@getHome');
+Route::get('/about', 'PagesController@getAbout');
+Route::get('/contact', 'PagesController@getContact');
+Route::get('/messages', 'MessagesController@getMessages');
 
 Route::post('/contact/submit','MessagesController@submit');

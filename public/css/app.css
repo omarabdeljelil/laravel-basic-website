@@ -10483,3 +10483,17 @@ a.text-dark:focus {
   min-height: 90vh;
 }
 
+#navbar a:hover {
+  color: black;
+  text-decoration: none;
+  background-color: ghostwhite;
+}
+
+.active {
+  color: black;
+}
+
+.not-active {
+  color: darkgrey;
+}
+

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Message;
 
 class MessagesController extends Controller
 {
@@ -10,9 +11,24 @@ class MessagesController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'email' => 'required'
+            'email' => 'required|email'
         ]);
 
-        return 'success';
+        $message = new Message;
+        $message->name = $request->input('name');
+        $message->email = $request->input('email');
+        $message->message = $request->input('message');
+
+        $message->save();
+
+        $successMessage = "Thanks " . ucwords($message->name) . ", your message is sent";
+        return redirect('/')->with('success', $successMessage);
+    }
+
+    public function getMessages()
+    {
+        $messges = Message::all();
+
+        return view('messages')->with('messages', $messges);
     }
 }
