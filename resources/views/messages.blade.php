@@ -1,5 +1,7 @@
 @extends('layouts.main')
-
+@section('title')
+    Messages list
+@endsection
 @section('content')
     @if(count($messages) > 0)
         <h1 class="text-info">Sent messages</h1>

@@ -15,5 +15,8 @@ Route::get('/', 'PagesController@getHome');
 Route::get('/about', 'PagesController@getAbout');
 Route::get('/contact', 'PagesController@getContact');
 Route::get('/messages', 'MessagesController@getMessages');
+Route::get('/todo', 'TodosController@index');
+
+Route::resource('todo','TodosController');
 
 Route::post('/contact/submit','MessagesController@submit');

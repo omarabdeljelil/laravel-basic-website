@@ -1,5 +1,7 @@
 @extends('layouts.main')
-
+@section('title')
+    Home
+@endsection
 @section('content')
     <h1 class="text-info">Home</h1>
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci deserunt dolores fugiat harum ipsum sint
