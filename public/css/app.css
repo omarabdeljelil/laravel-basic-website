@@ -10497,3 +10497,17 @@ a.text-dark:focus {
   color: darkgrey;
 }
 
+#showtodo {
+  width: 70%;
+  margin: auto;
+  text-align: center;
+}
+
+#showtodo span:first-of-type {
+  font-size: 0.9em;
+}
+
+#btnDelete::first-letter {
+  font-weight: bold;
+}
+

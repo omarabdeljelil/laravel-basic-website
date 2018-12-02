@@ -14,7 +14,7 @@ class TodosController extends Controller
      */
     public function index()
     {
-        $todos = Todo::all();
+        $todos = Todo::orderBy('created_at', 'desc')->get();
         return view('todos.index')->with("todos",$todos);
     }
 
@@ -25,7 +25,7 @@ class TodosController extends Controller
      */
     public function create()
     {
-        //
+        return view('todos.create');
     }
 
     /**
@@ -36,7 +36,18 @@ class TodosController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required'
+        ]);
+
+        $todo = new Todo;
+        $todo->title = $request->input('title');
+        $todo->body = $request->input('body');
+        $todo->due = $request->input('due');
+        $todo->save();
+
+        $message = "'".$todo->title."' is created";
+        return redirect('/todo')->with('success', $message);
     }
 
     /**
@@ -47,7 +58,8 @@ class TodosController extends Controller
      */
     public function show($id)
     {
-        //
+        $todo = Todo::find($id);
+        return view('todos.show')->with('todo',$todo);
     }
 
     /**
@@ -58,7 +70,8 @@ class TodosController extends Controller
      */
     public function edit($id)
     {
-        //
+        $todo = Todo::find($id);
+        return view('todos.edit')->with('todo',$todo);
     }
 
     /**
@@ -70,7 +83,13 @@ class TodosController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $todo = Todo::find($id);
+        $todo->title = $request->input('title');
+        $todo->body = $request->input('body');
+        $todo->due = $request->input('due');
+        $todo->save();
+
+        return redirect('/todo')->with('success', 'Todo updated');
     }
 
     /**
@@ -81,6 +100,8 @@ class TodosController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $todo= Todo::find($id);
+        $todo->delete();
+        return redirect('/todo')->with('success', 'Todo deleted');
     }
 }

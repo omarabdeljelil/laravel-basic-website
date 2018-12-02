@@ -4,7 +4,7 @@
         <a class="p-2 {{Request::is('/') ? 'active' : 'not-active'}}" href="/">Home</a>
         <a class="p-2 {{Request::is('about') ? 'active' : 'not-active'}}" href="/about">About</a>
         <a class="p-2 {{Request::is('contact') ? 'active' : 'not-active'}}" href="/contact">Contact</a>
-        <a class="p-2 {{Request::is('todo') ? 'active' : 'not-active'}}" href="/todo">To_Do</a>
+        <a class="p-2 {{Request::is('todo') ? 'active' : 'not-active'}}" href="/todo">ToDos</a>
     </nav>
 </div>
 
