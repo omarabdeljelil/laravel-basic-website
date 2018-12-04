@@ -18,5 +18,10 @@ Route::get('/messages', 'MessagesController@getMessages');
 Route::post('/contact/submit','MessagesController@submit');
 
 Route::resource('todo','TodosController');
+Route::resource('listings','ListingsController');
 
 
+
+Auth::routes();
+
+Route::get('/dashboard', 'DashboardController@index');

@@ -1,4 +1,4 @@
-@extends('Layouts.todos')
+@extends('Layouts.app')
 @section('title')
     {{$todo->title}}
 @endsection
@@ -12,9 +12,9 @@
             <a class="btn btn-success" href="/todo/create">
                 <span class="glyphicon glyphicon-plus"></span> New
             </a>
-            {!! Form::open(['action' => ['TodosController@destroy',$todo->id],'method'=>'POST']) !!}
+            {!! Form::open(['action' => ['TodosController@destroy',$todo->id],'method'=>'POST','onsubmit' => 'return confirm("Are you sure you want to delete the Todo?")']) !!}
             {{ Form::hidden('_method','DELETE')}}
-            {{ Form::bsButton('X Delete',['type'=>'submit','class' =>'btn btn-danger','id'=>'btnDelete'])}}
+            {{ Form::bsButton('Delete',['type'=>'submit','class' =>'btn btn-danger','id'=>'btnDelete'])}}
 
             {!! Form::close() !!}
         </div>

@@ -1,4 +1,4 @@
-@extends('Layouts.todos')
+@extends('Layouts.app')
 @section('title')
     Edit Todo
 @endsection
