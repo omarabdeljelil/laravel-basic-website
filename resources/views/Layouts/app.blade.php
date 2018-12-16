@@ -46,6 +46,7 @@
                     <a class="nav-link {{Request::is('contact') ? 'active' : 'not-active'}}" href="/contact">Contact</a>
                     <a class="nav-link {{Request::is('todo') ? 'active' : 'not-active'}}" href="/todo">ToDos</a>
                     <a class="nav-link {{Request::is('listings') ? 'active' : 'not-active'}}" href="/listings">Business Listings</a>
+                    <a class="nav-link" href="/itemsapitest" target="_blank">Items Api</a>
                     @guest
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>

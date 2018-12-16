@@ -19,7 +19,9 @@ Route::post('/contact/submit','MessagesController@submit');
 
 Route::resource('todo','TodosController');
 Route::resource('listings','ListingsController');
+Route::resource('api/items','ItemsController');
 
+Route::get('/itemsapitest', 'ItemsApiController@index');
 
 
 Auth::routes();
